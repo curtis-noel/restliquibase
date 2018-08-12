@@ -29,5 +29,5 @@
 .DS_Store
 
 ### Sublime ###
-.sublime-project
-.sublime-workspace
+*.sublime-project
+*.sublime-workspace
