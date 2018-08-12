@@ -27,3 +27,7 @@
 
 ###macbook###
 .DS_Store
+
+### Sublime ###
+.sublime-project
+.sublime-workspace
