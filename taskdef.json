@@ -1,0 +1,31 @@
+{
+    "family": "restliquibase",
+    "containerDefinitions": [
+        {
+            "image": "%REPOSITORY_URI%:v_%BUILD_NUMBER%",
+            "name": "restliquibase",
+            "cpu": 10,
+            "memory": 256,
+            "essential": true,
+            "environment" : [
+                { "name" : "DATABASE_HOST", "value" : "%DATABASE_HOST%" },
+                { "name" : "DATABASE_PORT", "value" : "%DATABASE_PORT%" },
+                { "name" : "DATABASE_NAME", "value" : "%DATABASE_NAME%" },
+                { "name" : "DATABASE_USER", "value" : "%DATABASE_USER%" },
+                { "name" : "DATABASE_PASSWORD", "value" : "%DATABASE_PASSWORD%" }
+            ],
+            "portMappings": [
+                {"containerPort": 8080,"hostPort": 8080},
+                {"containerPort": 5432,"hostPort": 5432}
+            ],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "rdfs",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "restliquibase"
+                }
+	        }
+        }
+    ]
+}
